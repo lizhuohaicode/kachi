@@ -18,4 +18,6 @@ public interface SimPoolService {
 	
 	public ReturnMsg modifyDept(SimPool simPool);
 	
+	public ReturnMsg saveSimPool(SimPool simPool);
+	
 }

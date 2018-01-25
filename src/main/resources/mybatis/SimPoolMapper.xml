@@ -48,9 +48,9 @@
 		  	   sum(tt.count) as simCardCount
 		from(
 			select p.id,
-						 case when p.isactive=1 then 1 else 0 end active,
-						 ifnull(type,0) type,
-						 count(1) count
+				   case when p.isactive=1 then 1 else 0 end active,
+				   ifnull(type,0) type,
+				   count(1) count
 			from m_simpool p 
 			left join m_simcard c
 			on p.id=c.cpid
@@ -61,4 +61,25 @@
 			group by p.id,p.isactive,p.type
 		) tt
 	</select>
+	<insert id="insertSimPool" parameterType="com.team.model.SimPool">
+		insert into m_simpool 
+		(spid,ip,type,isactive,departmentid,mac,version,name,inip,oupip,port,sumip,webport,lionversion)
+		values
+		(
+		 #{spid,jdbcType=INTEGER},
+		 #{ip,jdbcType=VARCHAR},
+		 #{type,jdbcType=INTEGER},
+		 #{isActive,jdbcType=INTEGER},
+		 #{departmentId,jdbcType=INTEGER},
+		 #{mac,jdbcType=VARCHAR},
+		 #{version,jdbcType=VARCHAR},
+		 #{name,jdbcType=VARCHAR},
+		 #{inIp,jdbcType=VARCHAR},
+		 #{oupIp,jdbcType=VARCHAR},
+		 #{port,jdbcType=INTEGER},
+		 #{sumIp,jdbcType=VARCHAR},
+		 #{webPort,jdbcType=INTEGER},
+		 #{lionVersion,jdbcType=VARCHAR}
+		)
+	</insert>
 </mapper>

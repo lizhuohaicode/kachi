@@ -40,7 +40,7 @@
         </if>
         <include refid="departmentId"/>
         <include refid="dId"/>
-        order by r.tsid
+        order by d.id,status
 	</select> 
 	
 	<update id="deleteTerminalByIds" parameterType="java.util.List">

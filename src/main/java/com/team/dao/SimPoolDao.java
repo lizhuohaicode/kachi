@@ -5,8 +5,8 @@ import java.util.Map;
 
 import org.apache.ibatis.annotations.Param;
 
-import com.team.vo.OutlineInfo;
 import com.team.model.SimPool;
+import com.team.vo.OutlineInfo;
 
 /**
  * 卡池表的相关操作	m_simpool
@@ -38,5 +38,13 @@ public interface SimPoolDao {
 	 *return
 	 */
 	public int updateDept(SimPool simPool);
+
+  /**
+   * 增加卡池
+   * 
+   * @param simPool
+   * @return
+   */
+  public int insertSimPool(SimPool simPool);
 	
 }
